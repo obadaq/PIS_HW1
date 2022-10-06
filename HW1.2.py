@@ -28,6 +28,7 @@ def word_histogram(org_str):
 
 
 def max_elements(dict1, n):
+
     values_list = list(dict1.values())
     keys_list = list(dict1.keys())
     max_vlist = []
@@ -54,26 +55,37 @@ def max_elements(dict1, n):
     return max_dict
 
 
-data_folder = os.path.join(os.getcwd(), 'articles')
-data = []
-for root, folder, files in os.walk(data_folder):
-    for file in files:
-        path = os.path.join(root, file)
-        with open(path) as inf:
-            data.append(inf.read())
+def read_folder_files():
+    global user_ch
+    data = []
+    f_num = 1
+    data_folder = os.path.join(os.getcwd(), 'articles')
 
-article_hist = []
-k = 0
+    for root, folder, files in os.walk(data_folder):
+        for file in files:
+            path = os.path.join(root, file)
+            with open(path) as inf:
+                print(f_num, ' ', inf.readline())
+                data.append(inf.read())
+                inf.close()
+            f_num += 1
+    article_hist = []
+    k = 0
+    user_ch = int(input('Choose article number to read:: ')) - 1
+    print(data[user_ch])
 
-for article in data:
-    article_hist.append(word_histogram(data[k]))
-    k += 1
+    for article in data:
+        article_hist.append(word_histogram(data[k]))
+        k += 1
 
-m = 0
-max_dicts = []
-for element in article_hist:
-    maxValues = max_elements(article_hist[m], len(article_hist[m]))
-    m += 1
-    max_dicts.append(maxValues)
-print(max_dicts[0])
-print(max_dicts[4])
+    return article_hist
+
+
+dict_list = read_folder_files()
+articles_keywords = []
+for art_dict in dict_list:
+    articles_keywords.append(max_elements(art_dict, 5))
+
+print(articles_keywords)
+
+print(set(articles_keywords[0].keys())&set(articles_keywords[1].keys()))

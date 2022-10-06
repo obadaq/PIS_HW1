@@ -73,3 +73,12 @@ my_dict = {'ukraine': 6, 'hitting': 1, 'russi': 11, 'hard': 1,
 print(list(my_dict.values()))
 
 #TESTINGGG
+m = 0
+max_dicts = []
+for element in article_hist:
+    maxValues = max_elements(article_hist[m], len(article_hist[m]))
+    m += 1
+    max_dicts.append(maxValues)
+print(max_dicts[0])
+print(max_dicts[4])
+
