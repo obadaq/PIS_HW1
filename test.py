@@ -71,3 +71,5 @@ my_dict = {'ukraine': 6, 'hitting': 1, 'russi': 11, 'hard': 1,
            'undermining': 1, 'threatening': 1, 'territorial': 1, 'integrity': 1, 'independence': 1}
 
 print(list(my_dict.values()))
+
+#TESTINGGG
