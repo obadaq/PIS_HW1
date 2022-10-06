@@ -83,9 +83,27 @@ def read_folder_files():
 
 dict_list = read_folder_files()
 articles_keywords = []
+selected_article_keywords = max_elements(dict_list[user_ch], 5)
+deselected = dict_list.remove(dict_list[user_ch])
+#print(selected_article_keywords)
 for art_dict in dict_list:
     articles_keywords.append(max_elements(art_dict, 5))
+ak = 0
+flag = 0
+common_dicts = []
+for key in selected_article_keywords.keys():
+    if flag == 1:
+        break
+    for dicts in articles_keywords:
+        if flag == 1:
+            break
+        for art_key in dicts.keys():
+            if key != art_key:
+                continue
+            else:
+                flag = 1
+                common_dicts.append(dicts)
+                print(dicts, "common")
+                break
 
 print(articles_keywords)
-
-print(set(articles_keywords[0].keys())&set(articles_keywords[1].keys()))
