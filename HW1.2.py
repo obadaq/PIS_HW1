@@ -1,6 +1,7 @@
 import os
 
 
+# Word Histogram extracting function from a specified text - returns a list od dict
 def word_histogram(org_str):
     org_str = org_str.lower()
     irrelevant_word = ["\n", ".", ",", "? ", "! ",
@@ -27,6 +28,7 @@ def word_histogram(org_str):
     return word_hist
 
 
+# Extracting n max elements in a dictionary - returns a dict
 def max_elements(dict1, n):
 
     values_list = list(dict1.values())
@@ -55,8 +57,24 @@ def max_elements(dict1, n):
     return max_dict
 
 
+def most_frequent(List):
+    counter = 0
+    num = List[0]
+
+    for i in List:
+        curr_frequency = List.count(i)
+        if (curr_frequency > counter):
+            counter = curr_frequency
+            num = i
+
+    return num
+
+
+# file handling function to handle .txt files articles and return a histogram for each article
+# returns a list of dict
 def read_folder_files():
     global user_ch
+    global data
     data = []
     f_num = 1
     data_folder = os.path.join(os.getcwd(), 'articles')
@@ -85,25 +103,34 @@ dict_list = read_folder_files()
 articles_keywords = []
 selected_article_keywords = max_elements(dict_list[user_ch], 5)
 deselected = dict_list.remove(dict_list[user_ch])
-#print(selected_article_keywords)
+# print(selected_article_keywords)
+
+
 for art_dict in dict_list:
     articles_keywords.append(max_elements(art_dict, 5))
+
 ak = 0
-flag = 0
+
 common_dicts = []
+print(selected_article_keywords,"selecteddddddddddddddd")
 for key in selected_article_keywords.keys():
-    if flag == 1:
-        break
+
     for dicts in articles_keywords:
-        if flag == 1:
-            break
+
         for art_key in dicts.keys():
             if key != art_key:
                 continue
             else:
-                flag = 1
-                common_dicts.append(dicts)
+                common_dicts.append(articles_keywords.index(dicts))
                 print(dicts, "common")
                 break
 
-print(articles_keywords)
+print(common_dicts)
+t = most_frequent(common_dicts)
+print(t)
+common_dicts.remove(t)
+t = most_frequent(common_dicts)
+print(t)
+common_dicts.remove(t)
+t = most_frequent(common_dicts)
+print(t)

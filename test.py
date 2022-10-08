@@ -82,3 +82,25 @@ for element in article_hist:
 print(max_dicts[0])
 print(max_dicts[4])
 
+'''
+ak = 0
+flag = 0
+common_dicts = []
+ for key in selected_article_keywords.keys():
+    if flag == 1:
+        break
+    for dicts in articles_keywords:
+        if flag == 1:
+            break
+        for art_key in dicts.keys():
+            if key != art_key:
+                continue
+            else:
+                flag = 1
+                common_dicts.append(dicts)
+                print(dicts, "common")
+                break
+
+print(articles_keywords) 
+
+'''
