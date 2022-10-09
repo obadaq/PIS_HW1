@@ -73,32 +73,51 @@ def most_frequent(List):
 # file handling function to handle .txt files articles and return a histogram for each article
 # returns a list of dict
 def read_folder_files():
-    global user_ch
-    global data
+    # global user_ch
+    title = []
     data = []
-    f_num = 1
+
     data_folder = os.path.join(os.getcwd(), 'articles')
 
     for root, folder, files in os.walk(data_folder):
         for file in files:
             path = os.path.join(root, file)
             with open(path) as inf:
-                print(f_num, ' ', inf.readline())
+                title.append(inf.readline())
                 data.append(inf.read())
                 inf.close()
-            f_num += 1
-    article_hist = []
-    k = 0
-    user_ch = int(input('Choose article number to read:: ')) - 1
-    print(data[user_ch])
-
-    for article in data:
-        article_hist.append(word_histogram(data[k]))
-        k += 1
-
-    return article_hist
 
 
+#   article_hist = []
+#    k = 0
+#    user_ch = int(input('Choose article number to read:: ')) - 1
+#    print(data[user_ch])
+
+#    for article in data:
+#        article_hist.append(word_histogram(article))
+
+    return title, data
+
+
+article_title, article_str = read_folder_files()
+article_hist = []
+articles_keywords = []
+art_num = 1
+for article in article_str:
+    article_hist.append(word_histogram(article))
+    articles_keywords.append(max_elements(article_hist[art_num-1],5))
+    print(art_num, article_title[art_num - 1])
+    art_num += 1
+
+
+user_ch = int(input('Choose article number to read:: ')) - 1
+print(article_title[user_ch], '\n', article_str[user_ch])
+print(article_hist[user_ch])
+selected_article_keywords = articles_keywords[user_ch]
+print(selected_article_keywords)
+print(articles_keywords)
+
+"""
 dict_list = read_folder_files()
 articles_keywords = []
 selected_article_keywords = max_elements(dict_list[user_ch], 5)
@@ -134,3 +153,4 @@ print(t)
 common_dicts.remove(t)
 t = most_frequent(common_dicts)
 print(t)
+"""
