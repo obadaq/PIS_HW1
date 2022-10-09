@@ -97,6 +97,7 @@ def read_folder_files():
         k += 1
 
     return article_hist
+#   plasdbhd
 
 
 dict_list = read_folder_files()
