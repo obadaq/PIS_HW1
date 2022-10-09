@@ -10,12 +10,10 @@ def word_histogram(org_str):
                        "is ", "of ", "this ", "was ",
                        "all ", "as", "its", "that",
                        '"', "she", "on", "her", ' s', ' c', ' e']
-
     for irr_word in irrelevant_word:
         org_str = org_str.replace(irr_word, " ")
-
+        
     word_list = org_str.split(" ")
-    # print(word_list)
 
     word_hist = {}
     for word in word_list:
