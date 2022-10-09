@@ -102,6 +102,7 @@ def read_folder_files():
 article_title, article_str = read_folder_files()
 article_hist = []
 articles_keywords = []
+common_dicts = []
 art_num = 1
 for article in article_str:
     article_hist.append(word_histogram(article))
@@ -117,6 +118,42 @@ selected_article_keywords = articles_keywords[user_ch]
 print(selected_article_keywords)
 print(articles_keywords)
 
+
+
+
+
+for key in selected_article_keywords.keys():
+
+    for dicts in articles_keywords:
+
+        for art_key in dicts.keys():
+            if key != art_key:
+                continue
+            else:
+                common_dicts.append(articles_keywords.index(dicts))
+                print(dicts, "common")
+                break
+
+print(common_dicts)
+t = most_frequent(common_dicts)
+print(t)
+print(article_title[t])
+common_dicts.remove(t)
+common_dicts.remove(t)
+common_dicts.remove(t)
+print(common_dicts)
+t = most_frequent(common_dicts)
+print(t)
+print(article_title[t])
+common_dicts.remove(t)
+t = most_frequent(common_dicts)
+print(t)
+print(article_title[t])
+common_dicts.remove(t)
+t = most_frequent(common_dicts)
+print(t)
+print(article_title[t])
+common_dicts.remove(t)
 """
 dict_list = read_folder_files()
 articles_keywords = []
