@@ -80,19 +80,10 @@ def read_folder_files():
     for root, folder, files in os.walk(data_folder):
         for file in files:
             path = os.path.join(root, file)
-            with open(path) as inf:
+            with open(path, 'r', errors='ignore') as inf:
                 title.append(inf.readline())
                 data.append(inf.read())
                 inf.close()
-
-
-#   article_hist = []
-#    k = 0
-#    user_ch = int(input('Choose article number to read:: ')) - 1
-#    print(data[user_ch])
-
-#    for article in data:
-#        article_hist.append(word_histogram(article))
 
     return title, data
 
@@ -102,24 +93,29 @@ article_hist = []
 articles_keywords = []
 common_dicts = []
 art_num = 1
+
 for article in article_str:
     article_hist.append(word_histogram(article))
-    articles_keywords.append(max_elements(article_hist[art_num-1],5))
+    articles_keywords.append(max_elements(article_hist[art_num-1],7))
     print(art_num, article_title[art_num - 1])
     art_num += 1
 
 
-user_ch = int(input('Choose article number to read:: ')) - 1
-print(article_title[user_ch], '\n', article_str[user_ch])
-print(article_hist[user_ch])
-selected_article_keywords = articles_keywords[user_ch]
-print(selected_article_keywords)
-print(articles_keywords)
+user_selected_method = input('Do you want to test a text ~T~ or read from articles database ~D~ ::: ')
+if user_selected_method == 'D':
+    user_ch = int(input('Choose article number to read:: ')) - 1
+    print(article_title[user_ch], '\n', article_str[user_ch])
+    print(article_hist[user_ch])
+    selected_article_keywords = articles_keywords[user_ch]
+    print(selected_article_keywords)
+    print(articles_keywords)
+elif user_selected_method == 'T':
+    user_txt = input('Enter the text here ::: ')
+    selected_txt_hist = word_histogram(user_txt)
+    selected_article_keywords = max_elements(selected_txt_hist, 7)
 
 
-
-
-
+'''
 for key in selected_article_keywords.keys():
 
     for dicts in articles_keywords:
@@ -152,40 +148,5 @@ t = most_frequent(common_dicts)
 print(t)
 print(article_title[t])
 common_dicts.remove(t)
-"""
-dict_list = read_folder_files()
-articles_keywords = []
-selected_article_keywords = max_elements(dict_list[user_ch], 5)
-deselected = dict_list.remove(dict_list[user_ch])
-# print(selected_article_keywords)
 
-
-for art_dict in dict_list:
-    articles_keywords.append(max_elements(art_dict, 5))
-
-ak = 0
-
-common_dicts = []
-print(selected_article_keywords,"selecteddddddddddddddd")
-for key in selected_article_keywords.keys():
-
-    for dicts in articles_keywords:
-
-        for art_key in dicts.keys():
-            if key != art_key:
-                continue
-            else:
-                common_dicts.append(articles_keywords.index(dicts))
-                print(dicts, "common")
-                break
-
-print(common_dicts)
-t = most_frequent(common_dicts)
-print(t)
-common_dicts.remove(t)
-t = most_frequent(common_dicts)
-print(t)
-common_dicts.remove(t)
-t = most_frequent(common_dicts)
-print(t)
-"""
+'''
