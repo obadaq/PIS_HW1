@@ -114,7 +114,7 @@ elif user_selected_method == 'T':
     selected_txt_hist = word_histogram(user_txt)
     selected_article_keywords = max_elements(selected_txt_hist, 7)
 
-
+#puu
 '''
 for key in selected_article_keywords.keys():
 
