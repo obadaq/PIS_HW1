@@ -104,6 +104,24 @@ elif user_selected_method == 'T':
     selected_txt_hist = word_histogram(user_txt)
     selected_article_keywords = max_elements(selected_txt_hist, 7)
 
+interSS=[]
+for art_kw in articles_keywords:
+    interSS.append(len(set(art_kw.keys()) & set(selected_article_keywords.keys())))
+
+print('ENTERRRRRRRRRRRRRR', interSS)
+mm = max(interSS)
+print(max(interSS))
+print(interSS.index(mm))
+interSS.remove(mm)
+mm = max(interSS)
+print(max(interSS))
+print(interSS.index(mm))
+mm = max(interSS)
+print(max(interSS))
+print(interSS.index(mm))
+
+'''
+
 for art_kw in articles_keywords:
     if len(set(art_kw.keys()) & set(selected_article_keywords.keys())) >= max_intersections:
         max_intersections = len(set(art_kw.keys()) & set(selected_article_keywords.keys())) > max_intersections
@@ -113,3 +131,5 @@ for art_kw in articles_keywords:
         break
 
 print(most_relevant)
+
+'''
