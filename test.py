@@ -6,7 +6,7 @@ def word_histogram(org_str):
     org_str = org_str.lower()
     irrelevant_word = ["\n", ".", ",", "? ", "! ",
                        "the ", "a ", " for ", "by ",
-                       "and ", "to ", "in ", "with ",
+                       "and ", "to ", " in ", "with ",
                        "is ", "of ", "this ", "was ",
                        "all ", "as", "its", "that",
                        '"', "she", "on", "her", ' s', ' c', ' e']
@@ -97,7 +97,7 @@ if user_selected_method == 'D' or user_selected_method == 'd':
     print(article_hist[user_ch])
     selected_article_keywords = articles_keywords[user_ch]
     print(selected_article_keywords)
-    print(articles_keywords)hxhgds
+    print(articles_keywords)
 
 elif user_selected_method == 'T' or user_selected_method == 't':
     user_txt = input('Enter the text here ::: ')
@@ -133,4 +133,4 @@ for art_kw in articles_keywords:
 print(most_relevant)
 
 '''
-#comment
+# comment123
