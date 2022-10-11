@@ -25,7 +25,9 @@ for art_kw in articles_keywords:
 
     if len(set(art_kw.keys()) & set(selected_article_keywords.keys())) >= 3 :
         most_relevant.append(h)
-        if h != user_ch + 1 :
-            print(h,article_title[h])
+        if art_kw != selected_article_keywords  :
+            print(h+1,article_title[h])
     h += 1
 
+if most_relevant == [] :
+    print('no related articles found')
