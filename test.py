@@ -97,7 +97,7 @@ if user_selected_method == 'D' or user_selected_method == 'd':
     print(article_hist[user_ch])
     selected_article_keywords = articles_keywords[user_ch]
     print(selected_article_keywords)
-    print(articles_keywords)
+    print(articles_keywords)hxhgds
 
 elif user_selected_method == 'T' or user_selected_method == 't':
     user_txt = input('Enter the text here ::: ')
