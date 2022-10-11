@@ -56,7 +56,7 @@ def max_elements(dict1, n):
 
 
 def read_folder_files():
-    # global user_ch
+
     title = []
     data = []
 
@@ -72,7 +72,7 @@ def read_folder_files():
 
     return title, data
 
-
+'''
 article_hist = []
 articles_keywords = []
 common_dicts = []
@@ -89,24 +89,23 @@ for article in article_str:
     art_num += 1
 
 
-user_selected_method = input('Do you want to test a text ~T~ or read from articles database ~D~ ::: ')
 
-if user_selected_method == 'D' or user_selected_method == 'd':
-    user_ch = int(input('Choose article number to read:: ')) - 1
-    print(article_title[user_ch], '\n', article_str[user_ch])
-    print(article_hist[user_ch])
-    selected_article_keywords = articles_keywords[user_ch]
-    print(selected_article_keywords)
-    print(articles_keywords)
 
-elif user_selected_method == 'T' or user_selected_method == 't':
-    user_txt = input('Enter the text here ::: ')
-    selected_txt_hist = word_histogram(user_txt)
-    selected_article_keywords = max_elements(selected_txt_hist, 7)
+
+user_ch = int(input('Choose article number to read:: ')) - 1
+print(article_title[user_ch], '\n', article_str[user_ch])
+print(article_hist[user_ch])
+selected_article_keywords = articles_keywords[user_ch]
+print(selected_article_keywords)
+print(articles_keywords)
+
 
 interSS=[]
 for art_kw in articles_keywords:
     interSS.append(len(set(art_kw.keys()) & set(selected_article_keywords.keys())))
+
+
+
 
 print('ENTERRRRRRRRRRRRRR', interSS)
 mm = max(interSS)
@@ -120,7 +119,6 @@ mm = max(interSS)
 print(max(interSS))
 print(interSS.index(mm))
 
-'''
 
 for art_kw in articles_keywords:
     if len(set(art_kw.keys()) & set(selected_article_keywords.keys())) >= max_intersections:
