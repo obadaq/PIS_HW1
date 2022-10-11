@@ -91,7 +91,7 @@ for article in article_str:
 
 user_selected_method = input('Do you want to test a text ~T~ or read from articles database ~D~ ::: ')
 
-if user_selected_method == 'D':
+if user_selected_method == 'D' or user_selected_method == 'd':
     user_ch = int(input('Choose article number to read:: ')) - 1
     print(article_title[user_ch], '\n', article_str[user_ch])
     print(article_hist[user_ch])
@@ -99,7 +99,7 @@ if user_selected_method == 'D':
     print(selected_article_keywords)
     print(articles_keywords)
 
-elif user_selected_method == 'T':
+elif user_selected_method == 'T' or user_selected_method == 't':
     user_txt = input('Enter the text here ::: ')
     selected_txt_hist = word_histogram(user_txt)
     selected_article_keywords = max_elements(selected_txt_hist, 7)
