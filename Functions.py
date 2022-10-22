@@ -28,7 +28,8 @@ def word_histogram(org_str):
 
 def read_folder_files():
 
-    title = data = []
+    title = []
+    data = []
     
     data_folder = os.path.join(os.getcwd(), 'articles')
 
@@ -46,27 +47,7 @@ def read_folder_files():
 # Extracting n max elements in a dictionary - returns a dict
 def max_elements(dict1, n):
 
-    values_list = list(dict1.values())
-    keys_list = list(dict1.keys())
-    max_vlist = []
-    max_klist = []
-    for i in range(0, n):
-        max1 = 0
-        max2 = 0
-        for j in range(len(values_list)):
-            if values_list[j] > max1:
-                max1 = values_list[j]
-                max2 = keys_list[j]
-        values_list.remove(max1)
-        keys_list.remove(max2)
-        max_vlist.append(max1)
-        max_klist.append(max2)
-
-    max_dict = {}
-    for key in max_klist:
-        for value in max_vlist:
-            max_dict[key] = value
-            max_vlist.remove(value)
-            break
+    sorted_dict = sorted(dict1.items(), key=lambda x: x[1], reverse=True)
+    max_dict = dict(sorted_dict[0:n+1])
 
     return max_dict
