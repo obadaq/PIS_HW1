@@ -48,7 +48,8 @@ def max_elements(dict1, n):
 
     values_list = list(dict1.values())
     keys_list = list(dict1.keys())
-    max_vlist = max_klist = []
+    max_vlist = []
+    max_klist = []
     for i in range(0, n):
         max1 = 0
         max2 = 0
