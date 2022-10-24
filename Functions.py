@@ -3,13 +3,18 @@ import os
 
 # Word Histogram extracting function from a specified text - returns a list od dict
 def word_histogram(org_str):
+    
     org_str = org_str.lower()
-    irrelevant_word = ["\n", ".", ",", "? ", "! ",
-                       "the ", "a ", " for ", "by ",
-                       "and ", "to ", " in ", "with ",
-                       "is ", "of ", "this ", "was ",
-                       "all ", "as", "its", "that",
-                       '"', "she", "on", "her", ' s', ' c', ' e']
+    irrelevant_word = ["\n", ".", ",", "? ", "! ", " the ", " a ", " for ", "by ", "and ", " to ", " in ",
+                       " with ", " is ", " of ", " this ", " very ", " our ", " was ", " all ", " must ", " so ",
+                       " no ", " his ", " at ", " on ", " was ", " were ", " his ", " her ", " him ", " its ",
+                       " new ", " be ", " had ", " he ", " that ", " it ", " from ", " you ", " as ", " have ",
+                       " been ", " would ", " who ", " about ", " has ", " then ", " an ", " i ", " my ", " just ",
+                       " not ", " mr ", " up ", " better ", " us ", " she ", " they ", " are ", " could ", " also ",
+                       " after", " not ", " will ", " than ", " -- ", " when ", " said ", " want ", " told ",
+                       " but ", " - ", " more ", " if ", " which ", " there ", " we ", " or ", " can ", " â€“ ",
+                       " u ", " s ", " their ", " most ", " le ", " every ", " one ", " didn't ", " such ", " _ ",
+                       " iâ€™m ", " it's ", " 000 ", " what ", " 2016 ", " should ", " â€” ", " please "]
     for irr_word in irrelevant_word:
         org_str = org_str.replace(irr_word, " ")
 
